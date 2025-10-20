@@ -7,7 +7,6 @@ function Home() {
     isPending,
     error,
   } = useFetch("https://www.omdbapi.com/?s=batman&apikey=d1a52bc9");
-  const id = Math.random();
 
   if (isPending)
     return <h2 className="text-center text-gray-400 mt-10">Loading...</h2>;
@@ -19,14 +18,11 @@ function Home() {
       <h1 className="text-3xl font-bold text-center mb-6 text-cyan-400">
         🎬 Online Cinema
       </h1>
-      <Link to={`/singlemovie${movies.id}`}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {movies?.Search?.length > 0 ? (
-            movies.Search.map((movie) => (
-              <div
-                key={movie.imdbID}
-                className="bg-white/10 backdrop-blur-lg border border-white/10 p-4 rounded-2xl shadow-lg hover:scale-105 transition-all duration-300"
-              >
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {movies?.Search?.length > 0 ? (
+          movies.Search.map((movie) => (
+            <Link key={movie.imdbID} to={`/singlemovie${movies.imdbID}`}>
+              <div className="bg-white/10 backdrop-blur-lg border border-white/10 p-4 rounded-2xl shadow-lg hover:scale-105 transition-all duration-300">
                 <img
                   src={movie.Poster}
                   alt={movie.Title}
@@ -37,14 +33,14 @@ function Home() {
                 </h2>
                 <p className="text-gray-400">{movie.Year}</p>
               </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-400 col-span-full">
-              Hech qanday film topilmadi 😕
-            </p>
-          )}
-        </div>
-      </Link>
+            </Link>
+          ))
+        ) : (
+          <p className="text-center text-gray-400 col-span-full">
+            Hech qanday film topilmadi 😕
+          </p>
+        )}
+      </div>
     </div>
   );
 }

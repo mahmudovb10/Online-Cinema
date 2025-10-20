@@ -5,7 +5,10 @@ function SingleMovie() {
     data: movie,
     isPending,
     error,
-  } = useFetch(`https://www.omdbapi.com/?s=batman&apikey=d1a52bc9/:${id}`);
+  } = useFetch(
+    imdbID ? `https://www.omdbapi.com/?i=${imdbID}&apikey=d1a52bc9` : null
+  );
+
   return (
     <div>
       <h1>Single Movie</h1>

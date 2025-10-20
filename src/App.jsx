@@ -40,7 +40,7 @@ function App() {
           element: <Profile />,
         },
         {
-          path: "singlemovie/:id",
+          path: "singlemovie/:imdbID",
           element: <SingleMovie />,
         },
         {
