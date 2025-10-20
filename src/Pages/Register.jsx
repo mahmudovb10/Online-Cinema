@@ -15,7 +15,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      // Firebase'da yangi foydalanuvchini yaratish
+      // Firebase'da yangi foydalanuvchini yaratish Uchun
       await createUserWithEmailAndPassword(auth, email, password);
 
       // Foydalanuvchini ma'lumotlarini localStorage'ga saqlash

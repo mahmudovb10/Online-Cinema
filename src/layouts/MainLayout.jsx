@@ -4,10 +4,8 @@ import { motion } from "framer-motion";
 function MainLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#050505] via-[#0a0a0a] to-[#141414] text-gray-100 relative overflow-hidden">
-      {/* noise texture background */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-15 pointer-events-none"></div>
 
-      {/* ==== HEADER ==== */}
       <motion.header
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -16,7 +14,7 @@ function MainLayout() {
       >
         <nav className="container mx-auto flex justify-between items-center py-4 px-6">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wide">
-            🎬 Movie App
+            🎬 Online Cinema
           </h1>
 
           <ul className="flex items-center gap-8 text-gray-300">
@@ -44,7 +42,6 @@ function MainLayout() {
         </nav>
       </motion.header>
 
-      {/* ==== MAIN CONTENT ==== */}
       <motion.main
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,7 +51,6 @@ function MainLayout() {
         <Outlet />
       </motion.main>
 
-      {/* ==== FOOTER ==== */}
       <motion.footer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
