@@ -21,7 +21,7 @@ function Home() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {movies?.Search?.length > 0 ? (
           movies.Search.map((movie) => (
-            <Link key={movie.imdbID} to={`/singlemovie${movies.imdbID}`}>
+            <Link key={movie.imdbID} to={`/singlemovie/${movie.imdbID}`}>
               <div className="bg-white/10 backdrop-blur-lg border border-white/10 p-4 rounded-2xl shadow-lg hover:scale-105 transition-all duration-300">
                 <img
                   src={movie.Poster}
