@@ -2,15 +2,17 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
 function SingleMovie() {
-  const { imdbID } = useParams();
+  const { id } = useParams();
   const {
     data: movie,
     isPending,
     error,
-  } = useFetch(
-    imdbID ? `https://www.omdbapi.com/?i=${imdbID}&apikey=d1a52bc9` : null
-  );
-  if (!movie || movie.Response === "False")
+  } = useFetch(`https://www.omdbapi.com/?s=batman&apikey=d1a52bc9s/${id}`);
+  if (isPending)
+    return <h2 className="text-center text-gray-400 mt-10">Yuklanmoqda...</h2>;
+  if (error)
+    return <h2 className="text-center text-red-400 mt-10">Xato: {error}</h2>;
+  if (!movie)
     return (
       <h2 className="text-center text-gray-400 mt-10">Film topilmadi 😕</h2>
     );
